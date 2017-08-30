@@ -1,7 +1,7 @@
 {
   "name": "transform-pkg",
   "version": "0.0.0",
-  "description": "Easily make CLIs to read, transform, and write a package.json",
+  "description": "Easily create CLIs that modify a package.json",
   "main": "index.js",
   "author": "Caleb Eby (@calebeby)",
   "license": "MIT",
