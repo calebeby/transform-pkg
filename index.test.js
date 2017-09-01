@@ -65,7 +65,6 @@ test("installs via yarn if there's a lockfile", async () => {
         devDeps: ['filled-array']
       }
     }
-    console.log(pkg)
   })
 
   await transform(dir)
