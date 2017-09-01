@@ -51,29 +51,29 @@ test('installs dependencies', async () => {
   expect(res).toHaveProperty('devDependencies')
 })
 
-// test("installs via yarn if there's a lockfile", async () => {
-//   jasmine.DEFAULT_TIMEOUT_INTERVAL = 20000
-//   fs.writeFileSync(pkgLocation, '{}')
-//   fs.writeFileSync(yarnLockLocation, '')
+test("installs via yarn if there's a lockfile", async () => {
+  jasmine.DEFAULT_TIMEOUT_INTERVAL = 20000
+  fs.writeFileSync(pkgLocation, '{}')
+  fs.writeFileSync(yarnLockLocation, '')
 
-//   const transform = transformPkg(pkg => {
-//     expect(pkg).toEqual({})
-//     return {
-//       pkg: { foo: 'bar' },
-//       deps: {
-//         deps: ['decamelize'],
-//         devDeps: ['filled-array']
-//       }
-//     }
-//     console.log(pkg)
-//   })
+  const transform = transformPkg(pkg => {
+    expect(pkg).toEqual({})
+    return {
+      pkg: { foo: 'bar' },
+      deps: {
+        deps: ['decamelize'],
+        devDeps: ['filled-array']
+      }
+    }
+    console.log(pkg)
+  })
 
-//   await transform(dir)
+  await transform(dir)
 
-//   const pkg = JSON.parse(fs.readFileSync(pkgLocation, 'utf8'))
-//   expect(pkg).toHaveProperty('dependencies')
-//   expect(pkg).toHaveProperty('devDependencies')
-//   const yarn = fs.readFileSync(yarnLockLocation, 'utf8')
-//   expect(yarn).toMatch(/decamelize/)
-//   expect(yarn).toMatch(/filled-array/)
-// })
+  const pkg = JSON.parse(fs.readFileSync(pkgLocation, 'utf8'))
+  expect(pkg).toHaveProperty('dependencies')
+  expect(pkg).toHaveProperty('devDependencies')
+  const yarn = fs.readFileSync(yarnLockLocation, 'utf8')
+  expect(yarn).toMatch(/decamelize/)
+  expect(yarn).toMatch(/filled-array/)
+})
