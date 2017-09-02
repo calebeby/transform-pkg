@@ -3,12 +3,20 @@ const writePkg = require('write-pkg')
 const execa = require('execa')
 const hasYarn = require('has-yarn')
 
+const runCmd = (cmd, opts, cwd) => {
+  console.log(`$ ${cmd} ${opts.join(' ')}`)
+  const proc = execa(cmd, opts, cwd)
+  proc.stdout.pipe(process.stdout)
+  proc.stderr.pipe(process.stderr)
+  return proc
+}
+
 const installDeps = (deps = [], yarn = false, cwd) => {
   if (deps.length > 0) {
     if (yarn) {
-      return execa('yarn', ['add', ...deps], { cwd })
+      return runCmd('yarn', ['add', ...deps], { cwd })
     }
-    return execa('npm', ['install', '--save', ...deps], { cwd })
+    return runCmd('npm', ['install', '--save', ...deps], { cwd })
   }
   return Promise.resolve()
 }
@@ -16,9 +24,9 @@ const installDeps = (deps = [], yarn = false, cwd) => {
 const installDevDeps = (deps = [], yarn = false, cwd) => {
   if (deps.length > 0) {
     if (yarn) {
-      return execa('yarn', ['add', '--dev', ...deps], { cwd })
+      return runCmd('yarn', ['add', '--dev', ...deps], { cwd })
     }
-    return execa('npm', ['install', '--save-dev', ...deps], { cwd })
+    return runCmd('npm', ['install', '--save-dev', ...deps], { cwd })
   }
   return Promise.resolve()
 }
