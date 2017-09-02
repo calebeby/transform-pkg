@@ -8,12 +8,14 @@
   "scripts": {
     "test": "jest",
     "test:watch": "jest --watch",
-    "test:coverage": "jest --coverage"
+    "test:coverage": "jest --coverage",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "devDependencies": {
     "babel-jest": "^20.0.3",
     "babel-preset-env": "^1.6.0",
-    "jest": "^20.0.4"
+    "jest": "^20.0.4",
+    "semantic-release": "^7.0.2"
   },
   "babel": {
     "presets": [
@@ -33,5 +35,9 @@
     "read-pkg-up": "^2.0.0",
     "tempy": "^0.1.0",
     "write-pkg": "^3.1.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/calebeby/transform-pkg.git"
   }
 }
