@@ -6,8 +6,9 @@
   "author": "Caleb Eby (@calebeby)",
   "license": "MIT",
   "scripts": {
-    "test": "jest --coverage",
-    "test:watch": "jest --watch"
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage"
   },
   "devDependencies": {
     "babel-jest": "^20.0.3",
