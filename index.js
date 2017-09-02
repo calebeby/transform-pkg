@@ -8,7 +8,7 @@ const installDeps = (deps = [], yarn = false, cwd) => {
     if (yarn) {
       return execa('yarn', ['add', ...deps], { cwd })
     }
-    return execa('npm', ['install', ...deps], { cwd })
+    return execa('npm', ['install', '--save', ...deps], { cwd })
   }
   return Promise.resolve()
 }
