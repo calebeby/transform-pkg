@@ -1,3 +1,5 @@
+/* global jasmine */
+
 import tempy from 'tempy'
 import fs from 'fs'
 import path from 'path'
