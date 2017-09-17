@@ -14,7 +14,7 @@ node_js:
   - 4
 
 after_success:
-  - yarn run semantic-release
+  - npx -p node@8 npm run semantic-release
 
 branches:
   except:
