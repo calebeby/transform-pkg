@@ -9,7 +9,8 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
-    "semantic-release": "semantic-release pre && npm publish && semantic-release post",
+    "semantic-release":
+      "semantic-release pre && npm publish && semantic-release post",
     "commitmsg": "commitlint -e",
     "fix": "prettier-eslint --write *.js",
     "lint": "npm run -s format && npm run -s eslint",
@@ -63,26 +64,15 @@
     "url": "https://github.com/calebeby/transform-pkg.git"
   },
   "eslintConfig": {
-    "extends": [
-      "standard",
-      "prettier"
-    ],
+    "extends": ["standard", "prettier"],
     "env": {
       "jest": true
     }
   },
   "lint-staged": {
-    "**/*.js": [
-      "npm run format",
-      "git add"
-    ]
+    "**/*.js": ["npm run format", "git add"]
   },
-  "eslintIgnore": [
-    "node_modules",
-    "coverage",
-    "dist",
-    "public"
-  ],
+  "eslintIgnore": ["node_modules", "coverage", "dist", "public"],
   "prettier": {
     "semi": false,
     "singleQuote": true
