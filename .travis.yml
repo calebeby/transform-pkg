@@ -7,23 +7,27 @@ cache:
 notifications:
   email: false
 
+node_js:
+  - 8
+  - 7
+  - 6
+  - 4
+
 stages:
   - test
   - name: publish
     if: branch = master
 
+env:
+  - BUILD_LEADER_ID=6
+
 jobs:
   include:
     - stage: test
       script: yarn test
-      node_js:
-        - 8
-        - 7
-        - 6
-        - 4
     - stage: publish
-      script: echo Publish
       node_js: 8
+      script: echo Publish
       after_success:
         - npm run semantic-release
 
