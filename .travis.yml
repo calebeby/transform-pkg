@@ -1,16 +1,30 @@
 language: node_js
 
+cache:
+  directories:
+    - node_modules
+
 notifications:
   email: false
-
-before_install:
-  - npm i -g npm@latest
 
 node_js:
   - 8
   - 7
   - 6
   - 4
+
+stages:
+  - test
+  - name: publish
+    if: branch = master
+
+jobs:
+  include:
+    - stage: test
+      script: yarn test
+    - stage: publish
+      node_js: 8
+      script: npm run semantic-release
 
 after_success:
   - npm run semantic-release
@@ -21,4 +35,3 @@ branches:
 
 install:
   - npm i
-  - npm ls
