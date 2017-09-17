@@ -33,4 +33,4 @@ branches:
   except:
     - /^v\d+\.\d+\.\d+$/
 
-install: yarn
+install: yarn --ignore-engines
