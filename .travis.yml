@@ -1,8 +1,6 @@
 language: node_js
 
-cache:
-  directories:
-    - node_modules
+cache: yarn
 
 notifications:
   email: false
@@ -34,3 +32,5 @@ jobs:
 branches:
   except:
     - /^v\d+\.\d+\.\d+$/
+
+install: yarn
