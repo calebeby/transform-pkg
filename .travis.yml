@@ -24,4 +24,4 @@ branches:
     - /^v\d+\.\d+\.\d+$/
 
 install:
-  - yarn install --ignore-engines
+  - npm i
