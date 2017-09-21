@@ -11,26 +11,10 @@ node_js:
   - 6
   - 4
 
-stages:
-  - test
-  - name: publish
-    if: branch = master
-
-env:
-  - BUILD_LEADER_ID=6
-
-jobs:
-  include:
-    - stage: test
-      script: yarn test
-    - stage: publish
-      node_js: 8
-      script: echo Publish
-      after_success:
-        - npm run semantic-release
-
 branches:
   except:
     - /^v\d+\.\d+\.\d+$/
 
 install: yarn --ignore-engines
+after_success:
+  - npm run semantic-release

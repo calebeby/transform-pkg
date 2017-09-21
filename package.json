@@ -9,15 +9,14 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
-    "semantic-release":
-      "semantic-release pre && npm publish && semantic-release post",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post",
     "commitmsg": "commitlint -e",
     "fix": "prettier-eslint --write *.js",
     "lint": "npm run -s format && npm run -s eslint",
     "precommit": "lint-staged",
     "pretest": "npm run lint",
-    "eslint": "eslint --format=node_modules/eslint-formatter-pretty .",
-    "format": "prettier --write '**/*.js' '**/*.json'"
+    "eslint": "eslint_d --format=node_modules/eslint-formatter-pretty .",
+    "format": "prettier_d --write '**/*.js' '**/*.json'"
   },
   "devDependencies": {
     "@commitlint/cli": "^3.2.0",
@@ -32,11 +31,13 @@
     "eslint-plugin-node": "^5.1.1",
     "eslint-plugin-promise": "^3.5.0",
     "eslint-plugin-standard": "^3.0.1",
+    "eslint_d": "^5.1.0",
     "husky": "^0.14.3",
     "jest": "^21.0.0",
     "lint-staged": "^4.2.1",
     "prettier": "^1.7.0",
     "prettier-eslint-cli": "^4.3.0",
+    "prettier_d": "^5.7.3",
     "semantic-release": "^8.0.0"
   },
   "babel": {
@@ -64,15 +65,26 @@
     "url": "https://github.com/calebeby/transform-pkg.git"
   },
   "eslintConfig": {
-    "extends": ["standard", "prettier"],
+    "extends": [
+      "standard",
+      "prettier"
+    ],
     "env": {
       "jest": true
     }
   },
   "lint-staged": {
-    "**/*.js": ["npm run format", "git add"]
+    "**/*.js": [
+      "npm run format",
+      "git add"
+    ]
   },
-  "eslintIgnore": ["node_modules", "coverage", "dist", "public"],
+  "eslintIgnore": [
+    "node_modules",
+    "coverage",
+    "dist",
+    "public"
+  ],
   "prettier": {
     "semi": false,
     "singleQuote": true
