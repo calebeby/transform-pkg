@@ -6,10 +6,10 @@ notifications:
   email: false
 
 node_js:
+  - 9
   - 8
   - 7
   - 6
-  - 4
 
 branches:
   except:
