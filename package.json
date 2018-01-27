@@ -36,7 +36,7 @@
     "lint-staged": "^6.0.0",
     "prettier": "^1.7.0",
     "prettier-eslint-cli": "^4.3.0",
-    "semantic-release": "^11.0.2"
+    "semantic-release": "^12.4.0"
   },
   "babel": {
     "presets": [
